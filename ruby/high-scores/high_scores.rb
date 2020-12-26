@@ -1,10 +1,8 @@
 class HighScores
+  attr_accessor :scores
+
   def initialize(scores)
     @scores = scores
-  end
-
-  def scores
-    @scores
   end
 
   def latest
@@ -16,14 +14,11 @@ class HighScores
   end
 
   def personal_top_three
-    @sorted = @scores.map(&:to_i).sort.reverse
-    @top_three = @sorted.first(3)
+    @scores.max(3)
   end
 
   def latest_is_personal_best?
     @best = @scores.sort.reverse.first
-    @best == @scores.last
+    personal_best == @scores.last
   end
-
-
 end
