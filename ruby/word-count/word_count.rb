@@ -11,6 +11,6 @@ class Phrase
 
 private
   def each_word
-    word_string.downcase.scan(/\w+/)
+    word_string.downcase.scan(/\w+(?:'\w+)*/)
   end
 end
